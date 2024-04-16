@@ -1,4 +1,4 @@
-const count_items = [10, 15, 14];
+const count_items = [10, 15, 9];
 const count_tasks = 5;
 const time_wait = 30;
  
@@ -134,7 +134,7 @@ function generate_task() {
      if (level == 2){
         
         randomColor = colors[ Math.floor(Math.random() * colors.length)];
-        title.innerHTML = `<span style="color: ${randomColor};">Выберите все слова ${condition}</span>`;
+        title.innerHTML = `<span style="color: ${randomColor};">Выберите все слова ${condition}. Используйте двойной клик.</span>`;
     }
      if (level == 1) title.innerHTML = `Выберите все слова ${condition}`;
     
@@ -171,14 +171,14 @@ function generate_task() {
         }
         if(level == 3){
             element.style.background = "white"; 
+             // Генерируем случайные координаты в пределах родительского блока
             const parentRect = items.getBoundingClientRect();
-        const randomTop = Math.floor(Math.random()* (parentRect.height  - element.offsetHeight -20)+20);
-        const randomLeft = Math.floor(Math.random() * (parentRect.width -   element.offsetWidth-40 )+40);
-        
-        
-        // Устанавливаем координаты
-        element.style.top = randomTop + "px"; 
-        element.style.left = randomLeft + "px"; 
+            const randomTop = Math.floor(Math.random() * (parentRect.height - element.offsetHeight-30)+30);
+            let randomLeft = Math.floor(Math.random() * (parentRect.width - element.offsetWidth-50)+50);
+            
+            // Устанавливаем координаты
+            element.style.top = randomTop + "px"; 
+            element.style.left = randomLeft + "px"; 
         }
         
         
@@ -200,22 +200,19 @@ function generate_task() {
  
     isStartTimer(true); // запуск таймера
     
+
+    
  
     let arrAnswers = quest_conditions[condition_index] 
     //обработка нажатия на ответы
 
-    if (level == 1) {
-        document.querySelectorAll('.word').forEach(item => {
+    document.querySelectorAll('.word').forEach(item => {
+        if (level === 1) {
             item.addEventListener('click', () => { processing(item, arrAnswers, generate_task) })
-        });
-    } else if (level == 2) {
-        document.querySelectorAll('.word').forEach(item => {
-            item.addEventListener('dblclick', () => { processing(item, arrAnswers, generate_task) })
-        });
-    }
-
-    
-
+        } else if (level === 2) {
+            item.addEventListener('dblclick', () => { processing(item, arrAnswers, generate_task) });
+        }
+    });
     
 }
  
@@ -341,7 +338,7 @@ function processing(item, arrAnswers, generate) {
         });
 
         // Если количество совпадений равно 225 (15x15), значит, все слова находятся в правильных группах
-        if (count === 225) {
+        if (count === 100) {
             
             countAnsw += 1
             userScore += 1
@@ -496,21 +493,20 @@ function animateWords() {
         }
         // Анимация перемещения
         function move() {
-          
             // Обновление координат на основе вектора скорости
             x += speedX;
             y += speedY;
 
             // Проверка на выход за границы items
             
-            if (x < 60 || x > items.clientWidth - word.clientWidth +30  ) {
+            if (x < 60 || x > items.clientWidth - word.clientWidth +40  ) {
                 speedX *= -1; // Изменение направления по оси X
                 if (  items.clientWidth - word.clientWidth == 40) {
                     speedX *= -1; // Изменение направления по оси X
                 }
             }
 
-            if (y < 60 || y > items.clientHeight - word.clientHeight+30  ) {
+            if (y < 60 || y > items.clientHeight - word.clientHeight +10 ) {
                 speedY *= -1; // Изменение направления по оси Y
                 if (  items.clientHeight - word.clientHeight == 10) {
                     speedY *= -1; // Изменение направления по оси X
