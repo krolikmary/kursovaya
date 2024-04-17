@@ -19,34 +19,35 @@ const quest_conditions = [
 const condition3 = [
     {condition: 'по категориям', check: ['город', 'фрукт', 'животное'] },
     {condition: 'по первой букве',check:['я', 'л', 'а', 'т']},
-    {condition: 'по последней букве',check:['о', 'с', 'н', 'к', 'ь', 'в', 'и', 'м', 'р', 'а', 'г']}
+    {condition: 'по последней букве',check:['о', 'с', 'н', 'к', 'ь', 'в', 'и', 'м', 'р', 'а', 'г']},
+    {condition: 'по количеству букв',check:['2', '3', '4', '5', '6', '7', '8', '11']}
 ]
  
  
  
 const words = [
-    { word: 'яблоко', condition1: 'фрукт',  condition2: 'я',  condition3: 'о'},
-    { word: 'ананас', condition1: 'фрукт', condition2: 'а',  condition3: 'с'},
-    { word: 'апельсин', condition1: 'фрукт', condition2: 'а',  condition3: 'н'},
-    { word: 'як', condition1: 'животное', condition2: 'я',  condition3: 'к'},
+    { word: 'яблоко', condition1: 'фрукт',  condition2: 'я',  condition3: 'о', condition4: '6'},
+    { word: 'ананас', condition1: 'фрукт', condition2: 'а',  condition3: 'с', condition4: '6'},
+    { word: 'апельсин', condition1: 'фрукт', condition2: 'а',  condition3: 'н', condition4: '8'},
+    { word: 'як', condition1: 'животное', condition2: 'я',  condition3: 'к', condition4: '2'},
  
-    { word: 'лимон', condition1: 'фрукт', condition2: 'л',  condition3: 'н'},
-    { word: 'лось', condition1: 'животное' , condition2: 'л',  condition3: 'ь'},
-    { word: 'лев', condition1: 'животное', condition2: 'л',  condition3: 'в'},
-    { word: 'личи', condition1: 'фрукт', condition2: 'л',  condition3: 'и'},
-    { word: 'лайм', condition1: 'фрукт', condition2: 'л',  condition3: 'м'},
-    { word: 'абрикос', condition1: 'фрукт', condition2: 'а',  condition3: 'с'},
-    { word: 'Архангельск', condition1: 'город', condition2: 'а',  condition3: 'к'},
-    { word: 'Адлер', condition1: 'город', condition2: 'а',  condition3: 'р'},
-    { word: 'Абакан', condition1: 'город', condition2: 'а',  condition3: 'н'},
-    { word: 'Анапа', condition1: 'город', condition2: 'а',  condition3: 'а'},
-    { word: 'Арзамас', condition1: 'город', condition2: 'а',  condition3: 'с'},
-    { word: 'Тверь', condition1: 'город', condition2: 'т',  condition3: 'ь'},
-    { word: 'Таганрог', condition1: 'город', condition2: 'т',  condition3: 'г'},
-    { word: 'Тамбов', condition1: 'город', condition2: 'т',  condition3: 'в'},
-    { word: 'Тигр', condition1: 'животное', condition2: 'т',  condition3: 'р'},
-    { word: 'Тюлень', condition1: 'животное', condition2: 'т',  condition3: 'ь'},
-    { word: 'Тукан', condition1: 'животное', condition2: 'т',  condition3: 'н'}
+    { word: 'лимон', condition1: 'фрукт', condition2: 'л',  condition3: 'н', condition4: '5'},
+    { word: 'лось', condition1: 'животное' , condition2: 'л',  condition3: 'ь', condition4: '4'},
+    { word: 'лев', condition1: 'животное', condition2: 'л',  condition3: 'в', condition4: '3'},
+    { word: 'личи', condition1: 'фрукт', condition2: 'л',  condition3: 'и', condition4: '4'},
+    { word: 'лайм', condition1: 'фрукт', condition2: 'л',  condition3: 'м', condition4: '4'},
+    { word: 'абрикос', condition1: 'фрукт', condition2: 'а',  condition3: 'с', condition4: '7'},
+    { word: 'Архангельск', condition1: 'город', condition2: 'а',  condition3: 'к', condition4: '11'},
+    { word: 'Адлер', condition1: 'город', condition2: 'а',  condition3: 'р', condition4: '5'},
+    { word: 'Абакан', condition1: 'город', condition2: 'а',  condition3: 'н', condition4: '6'},
+    { word: 'Анапа', condition1: 'город', condition2: 'а',  condition3: 'а', condition4: '5'},
+    { word: 'Арзамас', condition1: 'город', condition2: 'а',  condition3: 'с', condition4: '7'},
+    { word: 'Тверь', condition1: 'город', condition2: 'т',  condition3: 'ь', condition4: '5'},
+    { word: 'Таганрог', condition1: 'город', condition2: 'т',  condition3: 'г', condition4: '8'},
+    { word: 'Тамбов', condition1: 'город', condition2: 'т',  condition3: 'в', condition4: '6'},
+    { word: 'Тигр', condition1: 'животное', condition2: 'т',  condition3: 'р', condition4: '4'},
+    { word: 'Тюлень', condition1: 'животное', condition2: 'т',  condition3: 'ь', condition4: '6'},
+    { word: 'Тукан', condition1: 'животное', condition2: 'т',  condition3: 'н', condition4: '5'}
  
 ]
  
@@ -358,7 +359,7 @@ function areNear(rect1, rect2) {
 }
 
 function areCompatible(word1, word2, conditions) {
-    return areCompatible1(word1, word2, conditions) || areCompatible2(word1, word2, conditions)|| areCompatible3(word1, word2, conditions);
+    return areCompatible1(word1, word2, conditions) || areCompatible2(word1, word2, conditions)|| areCompatible3(word1, word2, conditions)|| areCompatible4(word1, word2, conditions);
 }
 
 function areCompatible1(word1, word2, conditions) {
@@ -371,6 +372,10 @@ function areCompatible2(word1, word2, conditions) {
 
 function areCompatible3(word1, word2, conditions) {
     return word1.getAttribute("condition3") === word2.getAttribute("condition3") && conditions["check"].includes(word1.getAttribute("condition3"))
+}
+
+function areCompatible4(word1, word2, conditions) {
+    return word1.getAttribute("condition4") === word2.getAttribute("condition4") && conditions["check"].includes(word1.getAttribute("condition4"))
 }
 
 // Если количество совпадений равно количеству возможных совпадений, значит, все слова находятся в правильных группах
@@ -393,7 +398,7 @@ if (count === words.length * words.length) {
  
  
     if (level == 2){
-        if ((arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") ||  arrAnswers.check == item.getAttribute("condition2"))
+        if ((arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") ||  arrAnswers.check == item.getAttribute("condition2")||  arrAnswers.check == item.getAttribute("condition3")||  arrAnswers.check == item.getAttribute("condition4"))
         && randomColor == item.style.backgroundColor) {
             countAnsw += 1;
             item.style = 'background: rgb(90 169 90)';
@@ -423,7 +428,7 @@ if (count === words.length * words.length) {
  
  
     if(level == 1){
-        if (arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") ||  arrAnswers.check == item.getAttribute("condition2")||  arrAnswers.check == item.getAttribute("condition3")) {
+        if (arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") ||  arrAnswers.check == item.getAttribute("condition2")||  arrAnswers.check == item.getAttribute("condition3")||  arrAnswers.check == item.getAttribute("condition4")) {
             countAnsw += 1;
             item.style = 'background: rgb(90 169 90)';
             if (noMoreLeft(arrAnswers)) { //!!!
@@ -465,9 +470,9 @@ function noMoreLeft(arrAnswers) {
  
 function isCorrect(item, arrAnswers) {
     if (level == 2){
-        return (arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") || arrAnswers.check == item.getAttribute("condition2")|| arrAnswers.check == item.getAttribute("condition3"))&& randomColor == item.style.backgroundColor
+        return (arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") || arrAnswers.check == item.getAttribute("condition2")|| arrAnswers.check == item.getAttribute("condition3")|| arrAnswers.check == item.getAttribute("condition4"))&& randomColor == item.style.backgroundColor
     }
-    return arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") || arrAnswers.check == item.getAttribute("condition2")|| arrAnswers.check == item.getAttribute("condition3")
+    return arrAnswers.check == item.textContent[0] || arrAnswers.check == item.getAttribute("condition1") || arrAnswers.check == item.getAttribute("condition2")|| arrAnswers.check == item.getAttribute("condition3")|| arrAnswers.check == item.getAttribute("condition4")
 }
  
 function setWords(words, conditionKey) {
@@ -478,6 +483,7 @@ function setWords(words, conditionKey) {
         wordDiv.setAttribute('condition1', item['condition1'])
         wordDiv.setAttribute('condition2', item['condition2'])
         wordDiv.setAttribute('condition3', item['condition3'])
+        wordDiv.setAttribute('condition4', item['condition4'])
         return wordDiv;
     });
  
