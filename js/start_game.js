@@ -1,4 +1,4 @@
-const count_items = [10, 15, 3];
+const count_items = [10, 15, 6];
 const count_tasks = 5;
 const time_wait = 30;
  
@@ -19,35 +19,35 @@ const quest_conditions = [
 const condition3 = [
     {condition: 'по категориям', check: ['город', 'фрукт', 'животное'] },
     {condition: 'по первой букве',check:['я', 'л', 'а', 'т']},
-    {condition: 'по последней букве',check:['о', 'с', 'н', 'к', 'ь', 'в', 'и', 'м', 'р', 'а', 'г']},
+    {condition: 'по последней букве',check:['оо', 'сс', 'нн', 'кк', 'ьь', 'вв', 'ии', 'мм', 'рр', 'аа', 'гг']},
     {condition: 'по количеству букв',check:['2', '3', '4', '5', '6', '7', '8', '11']}
 ]
  
  
  
 const words = [
-    { word: 'яблоко', condition1: 'фрукт',  condition2: 'я',  condition3: 'о', condition4: '6'},
-    { word: 'ананас', condition1: 'фрукт', condition2: 'а',  condition3: 'с', condition4: '6'},
-    { word: 'апельсин', condition1: 'фрукт', condition2: 'а',  condition3: 'н', condition4: '8'},
-    { word: 'як', condition1: 'животное', condition2: 'я',  condition3: 'к', condition4: '2'},
+    { word: 'яблоко', condition1: 'фрукт',  condition2: 'я',  condition3: 'оо', condition4: '6'},
+    { word: 'ананас', condition1: 'фрукт', condition2: 'а',  condition3: 'сс', condition4: '6'},
+    { word: 'апельсин', condition1: 'фрукт', condition2: 'а',  condition3: 'нн', condition4: '8'},
+    { word: 'як', condition1: 'животное', condition2: 'я',  condition3: 'кк', condition4: '2'},
  
-    { word: 'лимон', condition1: 'фрукт', condition2: 'л',  condition3: 'н', condition4: '5'},
-    { word: 'лось', condition1: 'животное' , condition2: 'л',  condition3: 'ь', condition4: '4'},
-    { word: 'лев', condition1: 'животное', condition2: 'л',  condition3: 'в', condition4: '3'},
-    { word: 'личи', condition1: 'фрукт', condition2: 'л',  condition3: 'и', condition4: '4'},
-    { word: 'лайм', condition1: 'фрукт', condition2: 'л',  condition3: 'м', condition4: '4'},
-    { word: 'абрикос', condition1: 'фрукт', condition2: 'а',  condition3: 'с', condition4: '7'},
-    { word: 'Архангельск', condition1: 'город', condition2: 'а',  condition3: 'к', condition4: '11'},
-    { word: 'Адлер', condition1: 'город', condition2: 'а',  condition3: 'р', condition4: '5'},
-    { word: 'Абакан', condition1: 'город', condition2: 'а',  condition3: 'н', condition4: '6'},
-    { word: 'Анапа', condition1: 'город', condition2: 'а',  condition3: 'а', condition4: '5'},
-    { word: 'Арзамас', condition1: 'город', condition2: 'а',  condition3: 'с', condition4: '7'},
-    { word: 'Тверь', condition1: 'город', condition2: 'т',  condition3: 'ь', condition4: '5'},
-    { word: 'Таганрог', condition1: 'город', condition2: 'т',  condition3: 'г', condition4: '8'},
-    { word: 'Тамбов', condition1: 'город', condition2: 'т',  condition3: 'в', condition4: '6'},
-    { word: 'Тигр', condition1: 'животное', condition2: 'т',  condition3: 'р', condition4: '4'},
-    { word: 'Тюлень', condition1: 'животное', condition2: 'т',  condition3: 'ь', condition4: '6'},
-    { word: 'Тукан', condition1: 'животное', condition2: 'т',  condition3: 'н', condition4: '5'}
+    { word: 'лимон', condition1: 'фрукт', condition2: 'л',  condition3: 'нн', condition4: '5'},
+    { word: 'лось', condition1: 'животное' , condition2: 'л',  condition3: 'ьь', condition4: '4'},
+    { word: 'лев', condition1: 'животное', condition2: 'л',  condition3: 'вв', condition4: '3'},
+    { word: 'личи', condition1: 'фрукт', condition2: 'л',  condition3: 'ии', condition4: '4'},
+    { word: 'лайм', condition1: 'фрукт', condition2: 'л',  condition3: 'мм', condition4: '4'},
+    { word: 'абрикос', condition1: 'фрукт', condition2: 'а',  condition3: 'сс', condition4: '7'},
+    { word: 'Архангельск', condition1: 'город', condition2: 'а',  condition3: 'кк', condition4: '11'},
+    { word: 'Адлер', condition1: 'город', condition2: 'а',  condition3: 'рр', condition4: '5'},
+    { word: 'Абакан', condition1: 'город', condition2: 'а',  condition3: 'нн', condition4: '6'},
+    { word: 'Анапа', condition1: 'город', condition2: 'а',  condition3: 'аа', condition4: '5'},
+    { word: 'Арзамас', condition1: 'город', condition2: 'а',  condition3: 'сс', condition4: '7'},
+    { word: 'Тверь', condition1: 'город', condition2: 'т',  condition3: 'ьь', condition4: '5'},
+    { word: 'Таганрог', condition1: 'город', condition2: 'т',  condition3: 'гг', condition4: '8'},
+    { word: 'Тамбов', condition1: 'город', condition2: 'т',  condition3: 'вв', condition4: '6'},
+    { word: 'Тигр', condition1: 'животное', condition2: 'т',  condition3: 'рр', condition4: '4'},
+    { word: 'Тюлень', condition1: 'животное', condition2: 'т',  condition3: 'ьь', condition4: '6'},
+    { word: 'Тукан', condition1: 'животное', condition2: 'т',  condition3: 'нн', condition4: '5'}
  
 ]
  
@@ -94,9 +94,10 @@ for (let i = 0; i < count_tasks; i++) {
  
         const description = document.createElement('h');
         description.style.fontSize = '14pt';
+        description.style.zIndex = '1';
         if(level== 1){description.textContent = 'Выбрать все слова с заданным свойством';}
         else if (level == 2){description.textContent = 'Выбрать все слова с заданным свойством и цветом';}
-        else{description.textContent = 'Разделить слова на группы по категориям';}
+        else{description.textContent = 'Разделить слова на группы';}
  
         wrapRes.appendChild(description);
  
@@ -157,7 +158,7 @@ function generate_task() {
  
  
  
-    const index = words.findIndex(item => item.condition1 === conditioncheck || item.condition2 === conditioncheck);
+    const index = words.findIndex(item => item.condition1 === conditioncheck || item.condition2 === conditioncheck|| item.condition3 === conditioncheck|| item.condition4 === conditioncheck);
  
     task_words.push(words[index]);
  
@@ -263,6 +264,8 @@ function showRes() {
     wrapRes.className = 'wrap_res';
  
     const title = document.createElement('h');
+    title.style.zIndex = '999999';
+    title.position = 'absolute';
     title.className = 'title';
     title.textContent = `Ваш результат: ${userScore}`;
  
@@ -556,7 +559,6 @@ function animateWords() {
  
  
  
- 
 function addMoveHandler() {
     var words = document.querySelectorAll('.word');
  
@@ -610,5 +612,6 @@ function addMoveHandler() {
       }
     });
   }
- 
+  
+  
  
